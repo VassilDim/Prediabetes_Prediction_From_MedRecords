@@ -10,6 +10,7 @@ CREATE DATABASE IF NOT EXISTS prediabetes;
 -- Select database as default:
 USE prediabetes;
 
+
 -- DROP TABLE patients;
 
 ##############################
