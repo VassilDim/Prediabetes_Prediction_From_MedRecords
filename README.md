@@ -34,8 +34,29 @@ The tables in the SQL database were loaded directly as pandas dataframe to compl
     
 ## Analysis
   <br>
-    
-### Exploratory Data Analysis
 
+### EXPLORATORY DATA ANALYSIS
+
+First, the diabetic patients were excluded from downstream analysis as well as patients receiving medications or care associated with diabetes (e.g. metformin or dialysis due to renal disease).
+The correlation between features was assessed an highly correlated features were used to engineer a new aggregate feature OR one of the features was dropped entirely.
+The number of prediabetic patients were less than the non-prediabetic patients. The latter group was therefore downsampled to obtain balanced target feature labels. Dimensionality reduction followed by visualization was employed to gain insight about which scaling method works best and whether there are any clusters of patients:
+- PCA
+- tSNE
+- UMAP
+- no scaling
+- standard scaling
+- MinMax scaling
+Unsurprisingly, MinMax scaling produced the best results since most of the features are represented by dummy variables.
+
+*Look at scripts **4_train_split_EDA.ipynb** and **later 7_EDA_test_split.ipynb***
+
+### MODEL BUILDING
+
+#### Base Model (logistic regression)
+This model was first trained in order to:
+1. Obtain baseline performance metrics.
+2. Identify variables that are not important for explaining the variation in the response variable and can therefore be eliminated from downstream analysis.
+Hyperparameters such as scaling, regularization types and penalty values, dimension reduction and the type of solver were optimized on training
+  
 
 
